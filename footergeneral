@@ -1,0 +1,83 @@
+<!-- Footer Start-->
+        <div class="footer-area footer-padding">
+            <div class="container-fluid ">
+                <div class="row d-flex justify-content-between">
+                    <div class="col-xl-3 col-lg-3 col-md-8 col-sm-8">
+                     <div class="single-footer-caption mb-50">
+                       <div class="single-footer-caption mb-30">
+                          <!-- logo -->
+                          <div class="footer-logo mb-35">
+                           <a href="index.html"><img src="assets/img/logo/Logo Nain/Logo_Nain_Circle_150_150px.png" alt=""></a>
+                       </div>
+                       <div class="footer-tittle">
+                           <div class="footer-pera">
+                               <p>"Descubre la magia de los detalles y celebra tu elegancia con nuestra colección de bisutería fina. Cada pieza está diseñada con pasión y artesanía para realzar tu belleza interior y hacer una declaración de estilo auténtica."
+                            </p>
+                           </div>
+                       </div>
+                       <!-- social -->
+                       <div class="footer-social">
+                        <a href="https://www.instagram.com/nain_creation/?hl=es-la" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/profile.php?id=100054295249476&mibextid=ZbWKwL" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://api.whatsapp.com/message/CPXIGK5JGRDMJ1?autoload=1&app_absent=0" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-2 col-lg-2 col-md-4 col-sm-4">
+            <div class="single-footer-caption mb-50">
+                <div class="footer-tittle">
+                    <h4>Links Importantes</h4>
+                    <ul>
+                        <li><a href="#">Guia de Envios</a></li>
+                        <li><a href="#">Condiciones de Compra</a></li>
+                        <li><a href="#">Politica de Privacidad</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-2 col-lg-2 col-md-4 col-sm-4">
+            <div class="single-footer-caption mb-50">
+                <div class="footer-tittle">
+                    <h4>Categoria Tienda</h4>
+                    <ul>
+                        <li><a href="#">Aretes</a></li>
+                        <li><a href="#">Cadenas</a></li>
+                        <li><a href="#">Pulseras</a></li>
+                        <li><a href="#">EarCuff</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4">
+            <div class="single-footer-caption mb-50">
+                <div class="footer-tittle">
+                    <h4>Ponte en Contacto</h4>
+                    <ul>
+                        <li><a href="https://api.whatsapp.com/message/CPXIGK5JGRDMJ1?autoload=1&app_absent=0">+57  305 711 2882</a></li>
+                        <li><a href="#">nainaccesorios.col@gmail.com</a></li>
+                        <li><a href="https://goo.gl/maps/krGveG8rSnETmtyR9">Transversal 99 # 70A - 89, Álamos Norte</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<!-- footer-bottom area -->
+<div class="footer-bottom-area">
+    <div class="container">
+        <div class="footer-border">
+           <div class="row d-flex align-items-center">
+               <div class="col-xl-12 ">
+                   <div class="footer-copy-right text-center">
+                       <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                          Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-laptop" aria-hidden="true"></i> by <a href="https://wants&gents.com" target="_blank">Wants & Gets</a>
+                          <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+        <!-- Footer End-->
