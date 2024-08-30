@@ -9,5 +9,7 @@ $dataProducts = $apiClient->getProductos();
 $dataCategorias = $apiClient->getCategorias();
 
 
+$dataCategorias = $dataCategorias;
+
 include 'index.html';
 ?>

@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="assets/css/slick.css">
     <link rel="stylesheet" href="assets/css/nice-select.css">
     <link rel="stylesheet" href="assets/css/style.css">
-    
+
 </head>
 <body class="full-wrapper">
     <!-- ? Preloader Start -->
@@ -48,13 +48,13 @@
                         <div class="header-left d-flex align-items-center">
                             <!-- Logo -->
                             <div class="logo">
-                                <a href="index.html"><img src="assets/img/logo/logo.png" alt=""></a>
+                                <a href="index.php"><img src="assets/img/logo/logo.png" alt=""></a>
                             </div>
                             <!-- Main-menu -->
                             <div class="main-menu  d-none d-lg-block">
                                 <nav>
                                     <ul id="navigation">
-                                        <li><a href="index.html">Home</a></li> 
+                                        <li><a href="index.php">Home</a></li>
                                         <li><a href="shop.html">shop</a></li>
                                         <li><a href="about.html">About</a></li>
                                         <li><a href="blog.html">Blog</a>
@@ -68,7 +68,7 @@
                                         <li><a href="contact.html">Contact</a></li>
                                     </ul>
                                 </nav>
-                            </div>   
+                            </div>
                         </div>
                         <div class="header-right1 d-flex align-items-center">
                             <!-- Social -->
@@ -113,9 +113,9 @@
                     <div class="col-lg-12">
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb justify-content-center">
-                                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                                <li class="breadcrumb-item"><a href="#">shop</a></li> 
-                                <li class="breadcrumb-item"><a href="#">Product Details</a></li> 
+                                <li class="breadcrumb-item"><a href="index.php">Home</a></li>
+                                <li class="breadcrumb-item"><a href="#">shop</a></li>
+                                <li class="breadcrumb-item"><a href="#">Product Details</a></li>
                             </ol>
                         </nav>
                     </div>
@@ -131,9 +131,16 @@
                         <div class="small-tittle mb-20">
                             <h2>Description</h2>
                         </div>
-                        <div class="directory-cap mb-40">
-                            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable.</p>
+                        <?php echo  $product['description']; ?>
+
+                        <div class="popular-img">
+                            <img style="height: 255px;border-radius: 5px 30px 45px 60px;" src="../assets/img/gallery/Anillos1.png" alt="">
+                            <div class="favorit-items">
+                                <!-- <span class="flaticon-heart"></span> -->
+                                <img id="icon1" alt=""  onclick="actualizarIcono(1)" src="assets/img/gallery/favorit-card.png" alt="">
+                            </div>
                         </div>
+                        sdfdfdfs
                         <div class="small-tittle mb-20">
                             <h2>Description</h2>
                         </div>
@@ -187,7 +194,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </form> 
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -290,7 +297,7 @@
                        <div class="single-footer-caption mb-30">
                           <!-- logo -->
                           <div class="footer-logo mb-35">
-                           <a href="index.html"><img src="assets/img/logo/logo2_footer.png" alt=""></a>
+                           <a href="index.php"><img src="assets/img/logo/logo2_footer.png" alt=""></a>
                        </div>
                        <div class="footer-tittle">
                            <div class="footer-pera">
@@ -390,6 +397,104 @@
     <a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a>
 </div>
 
+
+<style>
+
+
+icon-shape {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.icon-sm {
+    width: 2rem;
+    height: 2rem;
+
+}
+
+
+
+</style>
+
+<script>
+
+
+    function incrementValue(e) {
+            e.preventDefault();
+            var fieldName = $(e.target).data('field');
+            var parent = $(e.target).closest('div');
+            var currentVal = parseInt(parent.find('input[name=' + fieldName + ']').val(), 10);
+
+            if (!isNaN(currentVal)) {
+                parent.find('input[name=' + fieldName + ']').val(currentVal + 1);
+            } else {
+                parent.find('input[name=' + fieldName + ']').val(0);
+            }
+        }
+
+        function decrementValue(e) {
+            e.preventDefault();
+            var fieldName = $(e.target).data('field');
+            var parent = $(e.target).closest('div');
+            var currentVal = parseInt(parent.find('input[name=' + fieldName + ']').val(), 10);
+
+            if (!isNaN(currentVal) && currentVal > 0) {
+                parent.find('input[name=' + fieldName + ']').val(currentVal - 1);
+            } else {
+                parent.find('input[name=' + fieldName + ']').val(0);
+            }
+        }
+
+        $('.input-group').on('click', '.button-plus', function(e) {
+            incrementValue(e);
+        });
+
+        $('.input-group').on('click', '.button-minus', function(e) {
+            decrementValue(e);
+        });
+
+
+        </script>
+
+
+
+    <script type="text/javascript">
+    function actualizarIcono(numero) {
+      var icono = document.getElementById("icon"+numero);
+
+
+      // Simulamos una actualización demorada
+      // setTimeout(function() {
+        icono.src = "assets/img/icon/check.png"; // Actualizamos la imagen por otro icono
+      // }, 1000); // Retraso de 1 segundo (1000 milisegundos)
+
+      var span = document.getElementById("cantidadproductos");
+
+      if (numero == '1'){
+        span.innerHTML = "1";
+
+      }
+      if (numero == '2'){
+        span.innerHTML = "2";
+
+      }
+      if (numero == '3'){
+        span.innerHTML = "3";
+
+      }
+      if (numero == '4'){
+        span.innerHTML = "4";
+
+      }
+
+    }
+
+    </script>
+
+
 <!-- JS here -->
 <!-- Jquery, Popper, Bootstrap -->
 <script src="./assets/js/vendor/modernizr-3.5.0.min.js"></script>
@@ -426,7 +531,7 @@
 <script src="./assets/js/mail-script.js"></script>
 <script src="./assets/js/jquery.ajaxchimp.min.js"></script>
 
-<!-- Jquery Plugins, main Jquery -->	
+<!-- Jquery Plugins, main Jquery -->
 <script src="./assets/js/plugins.js"></script>
 <script src="./assets/js/main.js"></script>
 

@@ -12,6 +12,8 @@ class ApiClient
     {
         $this->apiUrlProducts = 'https://api-ecommerce-01.azurewebsites.net/api/products/';
         $this->apiUrlCategorias = 'https://api-ecommerce-01.azurewebsites.net/api/product_categories/';
+        // $this->apiUrlProducts = 'https://api-ecommerce-01.azurewebsites.net/api/producto/';
+        // $this->apiUrlCategorias = 'https://api-ecommerce-01.azurewebsites.net/api/categoria_producto/';
 
     }
 
@@ -40,32 +42,32 @@ class ApiClient
     public function getProductosCategorias($categoryId = null)
     {
         $ch = curl_init();
-    
+
         curl_setopt($ch, CURLOPT_URL, $this->apiUrlProducts);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_HTTPHEADER, [
             'Content-Type: application/json'
         ]);
-    
+
         $response = curl_exec($ch);
-    
+
         if (curl_errno($ch)) {
             echo 'Error:' . curl_error($ch);
             return [];
         }
-    
+
         curl_close($ch);
         $productos = json_decode($response, true);
-    
+
         if ($categoryId !== null) {
             $productos = array_filter($productos, function($producto) use ($categoryId) {
                 return $producto['category_id'] == $categoryId;
             });
         }
-    
+
         return $productos;
     }
-    
+
 
 
 
@@ -88,7 +90,7 @@ class ApiClient
 
         curl_close($ch);
 
-       
+
         return json_decode($response, true);
     }
 
