@@ -3,10 +3,10 @@ name: Build, Push, and Deploy Docker Image
 on:
   push:
     branches:
-      - develop-miguellatino
+      - master
   pull_request:
     branches:
-      - develop-miguellatino
+      - master
 
 jobs:
   build-and-deploy:
