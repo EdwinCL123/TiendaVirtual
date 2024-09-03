@@ -10,8 +10,8 @@ class ApiClient
 
     public function __construct()
     {
-        $this->apiUrlProducts = 'https://api-ecommerce-01.azurewebsites.net/api/products/';
-        $this->apiUrlCategorias = 'https://api-ecommerce-01.azurewebsites.net/api/product_categories/';
+        $this->apiUrlProducts = 'https://api-ecommerce-01.azurewebsites.net/api/productos/';
+        $this->apiUrlCategorias = 'https://api-ecommerce-01.azurewebsites.net/api/categorias/';
         // $this->apiUrlProducts = 'https://api-ecommerce-01.azurewebsites.net/api/producto/';
         // $this->apiUrlCategorias = 'https://api-ecommerce-01.azurewebsites.net/api/categoria_producto/';
 
@@ -61,7 +61,7 @@ class ApiClient
 
         if ($categoryId !== null) {
             $productos = array_filter($productos, function($producto) use ($categoryId) {
-                return $producto['category_id'] == $categoryId;
+                return $producto['category'] == $categoryId;
             });
         }
 

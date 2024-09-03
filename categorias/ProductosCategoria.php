@@ -20,7 +20,7 @@ $dataCategorias = $apiClient->getCategorias();
     }
     $productsByCategory = [];
     foreach ($dataProducts as $product) {
-        $productsByCategory[$product['category_id']][] = $product;
+        $productsByCategory[$product['category']][] = $product;
     }
     // Luego puedes acceder a los productos de una categoría específica directamente
     $products = isset($productsByCategory[$category_id]) ? $productsByCategory[$category_id] : [];
