@@ -38,6 +38,6 @@ jobs:
             docker stop app-cliente-php-01 || true
             docker rm app-cliente-php-01 || true
             docker image prune -a -f
-            docker run -d --name app-cliente-php-01 -p 9171:80 mlatino29/tienda-cliente-php-01:latest
+            docker run -d --name app-cliente-php-01 --restart unless-stopped -p 9171:80 mlatino29/tienda-cliente-php-01:latest
           EOF
 
