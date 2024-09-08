@@ -35,16 +35,7 @@
 
 
     <!-- ? Preloader Start -->
-    <div id="preloader-active">
-        <div class="preloader d-flex align-items-center justify-content-center">
-            <div class="preloader-inner position-relative">
-                <div class="preloader-circle"></div>
-                <div class="preloader-img pere-text">
-                    <img src="assets/img/logo/Logo Nain/Logo_Nain_Circle_500_500px.png" alt="">
-                </div>
-            </div>
-        </div>
-    </div>
+
     <!-- Preloader Start-->
     <header>
         <!-- Header Start -->
@@ -236,16 +227,25 @@
 
                     <?php
 
-                    foreach($dataProducts as $category){
+                    foreach($dataProducts as $product){
+                        if($apiClient->getImagenes($product['id'])){
+                            $imageUrl = $apiClient->getImagenes($product['id']);
 
 
+                            $baseUrl = $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'];
+                            $fullImageUrl = $baseUrl .'/TiendaVirtual/'.$imageUrl;
 
-                  ?>
+
+                        }
+
+                        
+                                                                
+                    ?>
                     <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
                         <div class="single-new-arrival mb-50 text-center wow fadeInUp" data-wow-duration="1s"
                             data-wow-delay=".1s">
                             <div class="popular-img">
-                                <img style="height: 270px;" src="assets/img/categorias y fotos/1.Anillos/Anillos_1.jpg"
+                                <img style="height: 270px;" src="<?php echo $fullImageUrl; ?>"
                                     alt="">
                                 <div class="favorit-items">
                                     <!-- <span class="flaticon-heart"></span> -->
@@ -253,8 +253,8 @@
                                 </div>
                             </div>
                             <div class="popular-caption">
-                                <h3><a href="categorias/ProductosCategoria.php?id=<?php echo $category['id']; ?> ">
-                                        <?php echo $category['name']; ?>
+                                <h3><a href="categorias/ProductosCategoria.php?id=<?php echo $product['id']; ?> ">
+                                        <?php echo $product['name']; ?>
                                     </a></h3>
                                 </a></h3>
                                 <div class="rating mb-10">
