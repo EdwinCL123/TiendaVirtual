@@ -17,5 +17,8 @@ foreach ($dataProducts as $product) {
 // Luego puedes acceder a los productos de una categoría específica directamente
 $products = isset($productsById[$product_id]) ? $productsById[$product_id] : [];
 
+echo  $product['description'];
+var_dump($dataProducts);
+
 include 'product_details.html';
 ?>
