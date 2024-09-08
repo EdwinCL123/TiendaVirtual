@@ -18,6 +18,12 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 # Copiar los archivos de la aplicación al contenedor
 COPY . /var/www/html
 
+# Establecer los permisos adecuados para el directorio público (en este caso /assets/uploads)
+RUN chown -R www-data:www-data /var/www/html \
+    && chmod -R 755 /var/www/html \
+    && chmod -R 755 /var/www/html/assets/uploads \
+    && chmod -R 644 /var/www/html/assets/uploads/*
+
 # Instalar las dependencias de Composer si existe un archivo composer.json
 RUN if [ -f composer.json ]; then composer install; fi
 
@@ -26,4 +32,3 @@ EXPOSE 80
 
 # Comando para iniciar Apache cuando se inicie el contenedor
 CMD ["apache2-foreground"]
-
