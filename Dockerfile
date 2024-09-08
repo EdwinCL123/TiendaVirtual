@@ -24,6 +24,14 @@ RUN chown -R www-data:www-data /var/www/html \
     && chmod -R 755 /var/www/html/assets/uploads \
     && chmod -R 644 /var/www/html/assets/uploads/*
 
+# Configuración de Apache para permitir el acceso al directorio /assets/uploads
+RUN echo "<Directory /var/www/html/assets/uploads> \
+        Options Indexes FollowSymLinks \
+        AllowOverride None \
+        Require all granted \
+        </Directory>" \
+        >> /etc/apache2/sites-available/000-default.conf
+
 # Instalar las dependencias de Composer si existe un archivo composer.json
 RUN if [ -f composer.json ]; then composer install; fi
 
