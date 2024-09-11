@@ -228,15 +228,10 @@
                     <?php
 
                     foreach($dataProducts as $product){
-                        if($apiClient->getImagenes($product['id'])){
-                            $imageUrl = $apiClient->getImagenes($product['id']);
+                  
+                        $imagenes = $apiClient->getImagenes($product['id']);
 
-
-                            $baseUrl = $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'];
-                            $fullImageUrl = $baseUrl .'/TiendaVirtual/'.$imageUrl;
-
-
-                        }
+                       
 
                         
                                                                 
@@ -245,8 +240,26 @@
                         <div class="single-new-arrival mb-50 text-center wow fadeInUp" data-wow-duration="1s"
                             data-wow-delay=".1s">
                             <div class="popular-img">
-                                <img style="height: 270px;" src="<?php echo $fullImageUrl; ?>"
-                                    alt="">
+                                <?php
+                                
+                                $baseUrl = $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'];
+
+                                $fullImageUrl = $baseUrl .'/TiendaVirtual/';
+
+                                    // Si hay imágenes, mostrarlas
+                                    if (!empty($imagenes)) {
+                                        foreach ($imagenes as $imagen) {
+                                            $fullImageUrl = $baseUrl .'/TiendaVirtual/'.$imagen['ruta'];
+
+                                            echo "<img style='height: 270px;}' src='{$fullImageUrl}'>";
+
+                                        }
+                                    } 
+
+                                ?>
+
+
+                                    
                                 <div class="favorit-items">
                                     <!-- <span class="flaticon-heart"></span> -->
                                     <img src="assets/img/gallery/favorit-card.png" alt="">

@@ -75,38 +75,49 @@ class ApiClient
     }
 
     public function getImagenes($productId)
-{
-    $ch = curl_init();
-
-    // Aquí usamos la URL correcta para imágenes
-    curl_setopt($ch, CURLOPT_URL, $this->apiUrlImagenes);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($ch, CURLOPT_HTTPHEADER, [
-        'Content-Type: application/json'
-    ]);
-    curl_setopt($ch, CURLOPT_TIMEOUT, 10);  // Tiempo máximo de espera de 10 segundos
-
-    $response = curl_exec($ch);
-
-    if (curl_errno($ch)) {
-        echo 'Error:' . curl_error($ch);
+    {
+        $ch = curl_init();
+    
+        // Configuramos la URL correcta para obtener las imágenes
+        curl_setopt($ch, CURLOPT_URL, $this->apiUrlImagenes);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, [
+            'Content-Type: application/json'
+        ]);
+        curl_setopt($ch, CURLOPT_TIMEOUT, 10);  // Tiempo máximo de espera de 10 segundos
+    
+        $response = curl_exec($ch);
+    
+        // Verificar si hubo un error en la solicitud
+        if (curl_errno($ch)) {
+            echo 'Error:' . curl_error($ch);
+            curl_close($ch);
+            return []; // Retorna un arreglo vacío en caso de error
+        }
+    
         curl_close($ch);
-        return []; // Retorna un arreglo vacío en caso de error
+    
+        // Decodificar la respuesta JSON a un array
+        $imagenes = json_decode($response, true);
+    
+        // Si no se pudo decodificar la respuesta o no hay imágenes, retornar un array vacío
+        if (!is_array($imagenes)) {
+            return [];
+        }
+    
+        // Filtrar las imágenes del producto específico usando el campo "producto"
+        $imagenesFiltradas = array_filter($imagenes, function($imagen) use ($productId) {
+            // Comparamos el ID del producto con el campo "producto" en la imagen
+            return isset($imagen['producto']) && $imagen['producto'] == $productId;
+        });
+    
+        return $imagenesFiltradas;
     }
-
-    curl_close($ch);
-    $imagenes = json_decode($response, true);
-
-    // Filtrar las imágenes del producto específico
-    $imagenes = array_filter($imagenes, function($imagen) use ($productId) {
-        return $imagen['producto'] == $productId;
-    });
-
     
 
     // Devolver la primera imagen encontrada o todas si lo prefieres
     // return reset($imagenes)['ruta']; // Si hay varias imágenes y deseas la primera
-}
+
 
     private function getToken()
     {
