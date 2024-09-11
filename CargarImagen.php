@@ -1,6 +1,7 @@
 <?php
 // Permitir solicitudes desde el origen específico
-header("Access-Control-Allow-Origin: http://localhost:4200");
+// header("Access-Control-Allow-Origin: http://localhost:4200");
+header("Access-Control-Allow-Origin: *");
 // Permitir ciertos métodos HTTP (GET, POST, OPTIONS)
 header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
 // Permitir ciertos encabezados
