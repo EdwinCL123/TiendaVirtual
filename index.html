@@ -244,12 +244,11 @@
                                 
                                 $baseUrl = $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'];
 
-                                $fullImageUrl = $baseUrl .'/TiendaVirtual/';
-
                                     // Si hay imágenes, mostrarlas
                                     if (!empty($imagenes)) {
                                         foreach ($imagenes as $imagen) {
-                                            $fullImageUrl = $baseUrl .'/TiendaVirtual/'.$imagen['ruta'];
+                                            <!-- $fullImageUrl = $baseUrl .'/TiendaVirtual/'.$imagen['ruta']; -->
+                                            $fullImageUrl = $baseUrl .'/'.$imagen['ruta'];
 
                                             echo "<img style='height: 270px;}' src='{$fullImageUrl}'>";
 
