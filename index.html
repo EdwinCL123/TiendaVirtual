@@ -242,7 +242,7 @@
                             <div class="popular-img">
                                 <?php
                                 
-                                $baseUrl = $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'];
+                                   $baseUrl = $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'];
 
                                     // Si hay imágenes, mostrarlas
                                     if (!empty($imagenes)) {
@@ -265,7 +265,7 @@
                                 </div>
                             </div>
                             <div class="popular-caption">
-                                <h3><a href="categorias/ProductosCategoria.php?id=<?php echo $product['id']; ?> ">
+                                <h3><a href="/TiendaVirtual/product_details.php?id=<?php echo $product['id']; ?> ">
                                         <?php echo $product['name']; ?>
                                     </a></h3>
                                 </a></h3>
