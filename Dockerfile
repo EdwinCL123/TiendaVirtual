@@ -2,7 +2,7 @@
 FROM php:8.1-apache
 
 # Establecer el directorio de trabajo
-WORKDIR /var/www/html
+WORKDIR /var/www/html/TiendaVirtual
 
 # Instalar las dependencias del sistema necesarias para instalar Composer y otras extensiones de PHP
 RUN apt-get update && apt-get install -y \
@@ -15,16 +15,26 @@ RUN apt-get update && apt-get install -y \
 # Instalar Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-# Copiar los archivos de la aplicación al contenedor
-COPY . /var/www/html
+# Copiar los archivos de la aplicación al nuevo directorio TiendaVirtual
+COPY . /var/www/html/TiendaVirtual
 
-# Establecer los permisos adecuados para el directorio público (en este caso /assets/uploads)
-RUN chown -R www-data:www-data /var/www/html \
-    && chmod -R 755 /var/www/html \
-    && chmod -R 755 /var/www/html/assets/uploads \
-    && chmod -R 644 /var/www/html/assets/uploads/*
+# Establecer los permisos adecuados para el nuevo directorio
+RUN chown -R www-data:www-data /var/www/html/TiendaVirtual \
+    && chmod -R 755 /var/www/html/TiendaVirtual \
+    && chmod -R 755 /var/www/html/TiendaVirtual/assets/uploads \
+    && chmod -R 644 /var/www/html/TiendaVirtual/assets/uploads/*
 
+# Modificar DocumentRoot en Apache
+RUN echo "<VirtualHost *:80>\n\
+    DocumentRoot /var/www/html/TiendaVirtual\n\
+    <Directory /var/www/html/TiendaVirtual>\n\
+        AllowOverride All\n\
+        Require all granted\n\
+    </Directory>\n\
+</VirtualHost>" > /etc/apache2/sites-available/000-default.conf
 
+# Habilitar módulos y reiniciar Apache
+RUN a2enmod rewrite && service apache2 restart
 
 # Instalar las dependencias de Composer si existe un archivo composer.json
 RUN if [ -f composer.json ]; then composer install; fi
