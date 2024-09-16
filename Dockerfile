@@ -24,8 +24,9 @@ RUN chown -R www-data:www-data /var/www/html/TiendaVirtual \
     && chmod -R 755 /var/www/html/TiendaVirtual/assets/uploads \
     && chmod -R 644 /var/www/html/TiendaVirtual/assets/uploads/*
 
-# Modificar DocumentRoot en Apache
+# Modificar DocumentRoot en Apache y añadir ServerName
 RUN echo "<VirtualHost *:80>\n\
+    ServerName 20.84.91.157\n\
     DocumentRoot /var/www/html/TiendaVirtual\n\
     <Directory /var/www/html/TiendaVirtual>\n\
         AllowOverride All\n\
