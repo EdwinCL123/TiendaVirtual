@@ -57,7 +57,21 @@
                                         <li><a href="index.html">Inicio</a></li>
                                         <li><a href="shop.html">Categorias</a>
                                             <ul class="submenu">
+                                                <?php
 
+                                                foreach($dataCategorias as $categorias){                                        
+                                    
+                                                ?>
+                                                <a href="categorias/ProductosCategoria.php?id=<?php echo $categorias['id']; ?>">
+                                                   
+                                                    <li>
+                                                        <?php echo $categorias['category_name']; ?>
+                                                    </li>
+                                                    
+                                                </a>
+                                               
+
+                                                <?php } ?>
 
 
 
@@ -249,7 +263,6 @@
                                         foreach ($imagenes as $imagen) {
                                             $fullImageUrl = $baseUrl .'/'.$imagen['ruta'];
                                             // $fullImageUrl = $baseUrl .'/TiendaVirtual/'.$imagen['ruta'];
-
                                             echo "<img style='height: 270px;}' src='{$fullImageUrl}'>";
 
                                         }
