@@ -129,22 +129,39 @@
                 <div class="row">
                     <div class="col-lg-8">
                         <div class="small-tittle mb-20">
-                            <h2>Description</h2>
+                            <h2>Description</h2>                       
+                            <?php  echo  $product['description'];   ?>
+
                         </div>
-                        <?php  ?>
+                        <?php                                              
+                            $imagenes = $apiClient->getImagenes($product['id']);
+                            $baseUrl = $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'];
+                        ?>
 
                         <div class="popular-img">
-                            <img style="height: 255px;border-radius: 5px 30px 45px 60px;" src="../assets/img/gallery/Anillos1.png" alt="">
+
+
+                        <?php  
+                            // Si hay imágenes, mostrarlas
+                            if (!empty($imagenes)) {
+                                foreach ($imagenes as $imagen) {
+                                    //$fullImageUrl = $baseUrl .'/'.$imagen['ruta'];
+                                    $fullImageUrl = $baseUrl .'/TiendaVirtual/'.$imagen['ruta'];
+                                    echo "<img style='height: 255px;border-radius: 5px 30px 45px 60px;' src='{$fullImageUrl}'>";
+                                }
+                            } 
+                        
+                        ?>
                             <div class="favorit-items">
                                 <!-- <span class="flaticon-heart"></span> -->
                                 <img id="icon1" alt=""  onclick="actualizarIcono(1)" src="assets/img/gallery/favorit-card.png" alt="">
                             </div>
                         </div>
                         
-                        <div class="small-tittle mb-20">
+                        <!-- <div class="small-tittle mb-20">
                             <h2>Description</h2>
-                        </div>
-                        <div class="gallery-img">
+                        </div> -->
+                        <!-- <div class="gallery-img">
                             <div class="row">
                                 <div class="col-lg-6">
                                     <img src="assets/img/gallery/gallery1.png" class="mb-30" alt="">
@@ -159,7 +176,7 @@
                                     <img src="assets/img/gallery/gallery4.png"  class="mb-30"alt="">
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="col-lg-4">
                         <div class="map">
@@ -203,7 +220,7 @@
         <!--  Details End -->
         <!-- listing-area Area End -->
         <!--? Popular Locations Start 01-->
-        <div class="popular-product pt-50">
+        <!-- <div class="popular-product pt-50">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-6 col-md-6 col-sm-12">
@@ -230,7 +247,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
         <!-- Popular Locations End -->
 
         <!--? Services Area Start -->

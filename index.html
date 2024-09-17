@@ -57,7 +57,21 @@
                                         <li><a href="index.html">Inicio</a></li>
                                         <li><a href="shop.html">Categorias</a>
                                             <ul class="submenu">
+                                                <?php
 
+                                                foreach($dataCategorias as $categorias){                                        
+                                    
+                                                ?>
+                                                <a href="categorias/ProductosCategoria.php?id=<?php echo $categorias['id']; ?>">
+                                                   
+                                                    <li>
+                                                        <?php echo $categorias['category_name']; ?>
+                                                    </li>
+                                                    
+                                                </a>
+                                               
+
+                                                <?php } ?>
 
 
 
@@ -242,13 +256,13 @@
                             <div class="popular-img">
                                 <?php
                                 
-                                $baseUrl = $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'];
+                                   $baseUrl = $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'];
 
                                     // Si hay imágenes, mostrarlas
                                     if (!empty($imagenes)) {
                                         foreach ($imagenes as $imagen) {
-                                            $fullImageUrl = $baseUrl .'/'.$imagen['ruta'];
-
+                                            //$fullImageUrl = $baseUrl .'/'.$imagen['ruta'];
+                                            $fullImageUrl = $baseUrl .'/TiendaVirtual/'.$imagen['ruta'];
                                             echo "<img style='height: 270px;}' src='{$fullImageUrl}'>";
 
                                         }
@@ -264,7 +278,7 @@
                                 </div>
                             </div>
                             <div class="popular-caption">
-                                <h3><a href="categorias/ProductosCategoria.php?id=<?php echo $product['id']; ?> ">
+                                <h3><a href="/TiendaVirtual/product_details.php?id=<?php echo $product['id']; ?> ">
                                         <?php echo $product['name']; ?>
                                     </a></h3>
                                 </a></h3>
