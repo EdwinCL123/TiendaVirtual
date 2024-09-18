@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Nain Accesorios Template</title>
+    <title>Tienda Nain Accesorios</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="manifest" href="site.webmanifest">
@@ -47,14 +47,14 @@
                         <div class="header-left d-flex align-items-center">
                             <!-- Logo -->
                             <div class="logo">
-                                <a href="index.html"><img src="assets/img/logo/Logo Nain/Logo_Nain_Circle_150_150px.png"
+                                <a href="index.php"><img src="assets/img/logo/Logo Nain/Logo_Nain_Circle_150_150px.png"
                                         alt=""></a>
                             </div>
                             <!-- Main-menu -->
                             <div class="main-menu  d-none d-lg-block">
                                 <nav>
                                     <ul id="navigation">
-                                        <li><a href="index.html">Inicio</a></li>
+                                        <li><a href="index.php">Inicio</a></li>
                                         <li><a href="shop.html">Categorias</a>
                                             <ul class="submenu">
                                                 <?php
@@ -62,14 +62,15 @@
                                                 foreach($dataCategorias as $categorias){                                        
                                     
                                                 ?>
-                                                <a href="categorias/ProductosCategoria.php?id=<?php echo $categorias['id']; ?>">
-                                                   
+                                                <a
+                                                    href="categorias/ProductosCategoria.php?id=<?php echo $categorias['id']; ?>">
+
                                                     <li>
                                                         <?php echo $categorias['category_name']; ?>
                                                     </li>
-                                                    
+
                                                 </a>
-                                               
+
 
                                                 <?php } ?>
 
@@ -94,34 +95,27 @@
                                 <a href="https://api.whatsapp.com/message/CPXIGK5JGRDMJ1?autoload=1&app_absent=0"
                                     target="_blank"><i class="fab fa-whatsapp"></i></a>
                             </div>
-                            <!-- Search Box -->
-                            <div class="search d-none d-md-block">
-                                <ul class="d-flex align-items-center">
-                                    <li class="mr-15">
-                                        <div class="nav-search search-switch">
-                                            <i class="ti-search"></i>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <a href="carshop2.html">
 
-                                            <div class="card-stor">
-                                                <img src="assets/img/gallery/card.svg" alt="">
-                                                <span>0</span>
-                                            </div>
-                                        </a>
+                            <li>
+                                <a href="carshop2.html">
 
-                                    </li>
-                                </ul>
-                            </div>
+                                    <div class="card-stor">
+                                        <img src="assets/img/gallery/card.svg" alt="">
+                                        <span>0</span>
+                                    </div>
+                                </a>
+
+                            </li>
+                            </ul>
                         </div>
-                        <!-- Mobile Menu -->
-                        <div class="col-12">
-                            <div class="mobile_menu d-block d-lg-none"></div>
-                        </div>
+                    </div>
+                    <!-- Mobile Menu -->
+                    <div class="col-12">
+                        <div class="mobile_menu d-block d-lg-none"></div>
                     </div>
                 </div>
             </div>
+        </div>
         </div>
         <!-- Header End -->
     </header>
@@ -271,7 +265,7 @@
                                 ?>
 
 
-                                    
+
                                 <div class="favorit-items">
                                     <!-- <span class="flaticon-heart"></span> -->
                                     <img src="assets/img/gallery/favorit-card.png" alt="">
@@ -420,7 +414,7 @@
                             <div class="single-footer-caption mb-30">
                                 <!-- logo -->
                                 <div class="footer-logo mb-35">
-                                    <a href="index.html"><img
+                                    <a href="index.php"><img
                                             src="assets/img/logo/Logo Nain/Logo_Nain_Circle_150_150px.png" alt=""></a>
                                 </div>
                                 <div class="footer-tittle">
