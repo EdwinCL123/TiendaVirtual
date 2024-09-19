@@ -14,6 +14,7 @@ $productsById = [];
 foreach ($dataProducts as $product) {
     $productsById[$product['id']][] = $product;
 }
+
 // Luego puedes acceder a los productos de una categoría específica directamente
 $products = isset($productsById[$product_id]) ? $productsById[$product_id] : [];
 
