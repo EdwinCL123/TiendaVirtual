@@ -240,7 +240,7 @@
                                                     foreach ($imagenes as $imagen) {
                                                         //$fullImageUrl = $baseUrl .'/'.$imagen['ruta'];
                                                         $fullImageUrl = $baseUrl.$imagen['ruta'];
-                                                        echo "<img style="height: 255px;border-radius: 5px 30px 45px 60px;" src='{$fullImageUrl}'>";
+                                                        echo "<img style='height: 255px;border-radius: 5px 30px 45px 60px;'' src='{$fullImageUrl}'>";
 
                                                     }
                                                 } 
@@ -262,7 +262,7 @@
                                                 <i class="fas fa-star"></i>
                                                 <i class="fas fa-star"></i>
                                             </div>
-                                            <span>$ 15.000 COP</span>
+                                            <span><?php echo ($product['price']) ?></span>
                                         </div>
                                     </div>
                                 </div>
